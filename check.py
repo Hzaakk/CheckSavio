@@ -46,7 +46,7 @@ def parseGresConf():
             nodeRange = nodeName[nodeName.index('[') + 1:nodeName.index(']')]
             for i in parseRange(nodeRange):
                 for j in parseRange(suffixRange):
-                    gresConf[nodeName]['Nodes'].add('%s%03d%s%s%s' % (prefix, i, suffixPrefix, suffixSuffix))
+                    gresConf[nodeName]['Nodes'].add('%s%03d%s%s%s' % (prefix, i, suffixPrefix, j, suffixSuffix))
     return gresConf
 
 def findExpectedGpu():
