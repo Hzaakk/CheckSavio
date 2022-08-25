@@ -35,7 +35,7 @@ def parseGresConf():
             for field in fields[1:]:
                 key, value = field.split('=')
                 gresConf[nodeName][key] = value
-            gresConf['Count'] = int(gresConf['Count'])
+            gresConf[nodeName]['Count'] = int(gresConf['Count'])
 
             gresConf[nodeName]['Nodes'] = set()
             prefix = nodeName[:nodeName.index('[')]
