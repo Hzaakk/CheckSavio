@@ -9,6 +9,7 @@
 # "I am supposed to have 8 GTX1080TI gpu(s)".  print this.
 
 import os
+from xmlrpc.client import getparser
 
 def parseRange(rangeStr):
     """Parse a range string and return a list of integers."""
@@ -61,5 +62,15 @@ def findExpectedGpu():
             return gresConf[nodeName]['Count']
     return 0
 
+def printGpu():
+    # this function will print the number and type of gpu(s) this machine should have
+    # "I am supposed to have 8 GTX1080TI gpu(s)".  print this.
+    machineName = os.uname()[1]
+    gresConf = parseGresConf()
+    for nodeName in gresConf:
+        if machineName in gresConf[nodeName]['Nodes']:
+            print(f'I am supposed to have {gresConf[nodeName]["Count"]} '
+                  f'{gresConf[nodeName]["Type"]} gpu(s).')
+            return
 if __name__ == '__main__':
-    print(findExpectedGpu())
+    print(printGpu())
