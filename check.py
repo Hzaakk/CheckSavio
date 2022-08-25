@@ -73,4 +73,4 @@ def printGpu():
                   f'{gresConf[nodeName]["Type"]} gpu(s).')
             return
 if __name__ == '__main__':
-    print(printGpu())
+    printGpu()
