@@ -51,7 +51,7 @@ def parseGresConf():
 
 def findExpectedGpu():
     # this function will parse /etc/slurm/gres.conf 
-    # use the current hostname ( machineName could be passed as fn argument )
+    # use the current hostname (machineName could be passed as fn argument)
     # return how many gpu this machine should have
     # node that have no gpu should return 0
     machineName = os.uname()[1]
@@ -60,3 +60,6 @@ def findExpectedGpu():
         if machineName in gresConf[nodeName]['Nodes']:
             return gresConf[nodeName]['Count']
     return 0
+
+if __name__ == '__main__':
+    print(findExpectedGpu())
